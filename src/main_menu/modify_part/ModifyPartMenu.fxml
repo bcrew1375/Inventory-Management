@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.stage.Stage?>
+
+<Stage title="C482 - Inventory Management System - Modify Part" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_menu.modify_part.ModifyPartMenuController">
+   <scene>
+      <Scene>
+         <root>
+            <AnchorPane>
+               <children>
+                  <VBox alignment="CENTER" layoutX="220.0" layoutY="29.0" prefHeight="434.0" prefWidth="580.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <GridPane VBox.vgrow="ALWAYS">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Modify Part" textFill="BLUE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton fx:id="inHouseButton" mnemonicParsing="false" onAction="#inHouseButtonClicked" selected="true" text="In-House" GridPane.columnIndex="1">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="InHouse_Outsourced" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="outsourcedButton" mnemonicParsing="false" onAction="#outsourcedButtonClicked" text="Outsourced" toggleGroup="$InHouse_Outsourced" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                        <GridPane vgap="10.0" VBox.vgrow="ALWAYS">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <children>
+                              <Label text="ID" />
+                              <ChoiceBox fx:id="partIdBox" disable="true" prefHeight="25.0" prefWidth="130.0" GridPane.columnIndex="1" />
+                              <Label text="Name" GridPane.rowIndex="1" />
+                              <TextField fx:id="partNameBox" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="125.0" promptText="Part Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Label text="Inventory" GridPane.rowIndex="2" />
+                              <TextField fx:id="inventoryBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" prefWidth="180.0" promptText="Stock Amount" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Label text="Price/Cost" GridPane.rowIndex="3" />
+                              <TextField fx:id="priceBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" prefHeight="25.0" prefWidth="125.0" promptText="Price/Cost" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Label text="Minimum" GridPane.rowIndex="4" />
+                              <TextField fx:id="minimumBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" prefHeight="25.0" prefWidth="125.0" promptText="Minimum Stock" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Label text="Maximum" GridPane.rowIndex="5" />
+                              <TextField fx:id="maximumBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" prefWidth="125.0" promptText="Maximum Stock" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Label fx:id="machineIDLabel" alignment="CENTER" text="Machine ID" GridPane.rowIndex="6" />
+                              <TextField fx:id="machineIDBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" promptText="Machine ID" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Label fx:id="companyNameLabel" contentDisplay="CENTER" text="Company Name" visible="false" GridPane.rowIndex="6" />
+                              <TextField id="addPartCompanyName" fx:id="companyNameBox" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="125.0" promptText="Company Name" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Save" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+                              <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </AnchorPane>
+         </root>
+      </Scene>
+   </scene>
+</Stage>

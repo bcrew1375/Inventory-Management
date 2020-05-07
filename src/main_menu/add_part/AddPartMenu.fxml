@@ -82,7 +82,7 @@
                                  </font>
                               </TextField>
                               <Label text="Price/Cost" GridPane.rowIndex="3" />
-                              <TextField id="addPartPrice" fx:id="priceBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" prefHeight="25.0" prefWidth="125.0" promptText="Price/Cost" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                              <TextField id="addPartPrice" fx:id="priceBox" onAction="#saveButtonClicked" onKeyTyped="#validatePriceBox" prefHeight="25.0" prefWidth="125.0" promptText="Price/Cost" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <font>
                                     <Font name="System Italic" size="12.0" />
                                  </font>

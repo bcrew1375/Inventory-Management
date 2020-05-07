@@ -17,9 +17,9 @@ import javafx.scene.input.KeyEvent;
  * @author Benjamin Crew
  */
 public class Utility {
-    public FXMLLoader loadFxml;
 
     public Stage LoadFXML (String fxmlFilename) {
+        FXMLLoader loadFxml;
         Stage stage;
 
         try {

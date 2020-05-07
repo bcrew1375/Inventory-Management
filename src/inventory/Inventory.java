@@ -12,7 +12,9 @@ import javafx.collections.ObservableList;
  * @author Benjamin Crew
  */
 public class Inventory {
-    
+    public static Part selectedPart;
+    public static Product selectedProduct;
+
     private ObservableList<Part> allParts;
     private ObservableList<Product> allProducts;
     
@@ -21,7 +23,7 @@ public class Inventory {
     
     private Inventory() {
         allParts = FXCollections.observableArrayList();
-        
+
         nextPartId = 0;
         nextProductId = 0;
     }
@@ -44,9 +46,9 @@ public class Inventory {
         nextProductId++;
     }
 
-    /*public boolean deletePart (Part selectedPart) {
-        
-    }*/
+    public boolean deletePart (Part selectedPart) {
+        return allParts.remove(selectedPart);
+    }
 
     /*public boolean deleteProduct (Product selectedProduct) {
         
@@ -64,27 +66,40 @@ public class Inventory {
         return this.allProducts;
     }    
     
-    /*public Part lookupPart(int partId) {
-        
+    public Part lookupPart(int partId) {
+        for (int i = 0; i < allParts.size(); i++) {
+            if (allParts.get(i).getId() == partId)
+                return allParts.get(i);
+        }
+        return null;
     }
 
-    public Product lookupProduct(int productId) {
+    /*public Product lookupProduct(int productId) {
         
-    }
+    }*/
 
     public ObservableList<Part> lookupPart(String partName) {
-        
+        ObservableList<Part> lookupList = FXCollections.observableArrayList();
+
+        String searchedPart = partName.toUpperCase();
+
+        for (int i = 0; i < allParts.size(); i++) {
+            if (allParts.get(i).getName().toUpperCase().contains(partName.toUpperCase()))
+                lookupList.add(allParts.get(i));
+        }
+
+        return lookupList;
     }
 
-    public ObservableList<Product> lookupProduct(String productName) {
+    /*public ObservableList<Product> lookupProduct(String productName) {
         
-    }
+    }*/
 
     public void updatePart (int index, Part selectedPart) {
-        
+        allParts.set(index, selectedPart);
     }
     
-    public void updateProduct (int index, Product newProduct) {
+    /*public void updateProduct (int index, Product newProduct) {
         
     }*/
 }

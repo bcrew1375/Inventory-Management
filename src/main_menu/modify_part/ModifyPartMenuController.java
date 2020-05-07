@@ -6,6 +6,7 @@
 package main_menu.modify_part;
 
 import inventory.InHouse;
+import inventory.Inventory;
 import inventory.Outsourced;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -56,13 +57,11 @@ public class ModifyPartMenuController {
     @FXML
     private TextField priceBox;
 
-    private Part selectedPart;
-
     private Utility utility;
 
     @FXML
     private void initialize () {
-        utility = new utility.Utility();
+        utility = new Utility();
 
         ObservableList<String> partIdBoxChoices = FXCollections.observableArrayList();
 
@@ -70,24 +69,24 @@ public class ModifyPartMenuController {
 
         partIdBox.setItems(partIdBoxChoices);
         partIdBox.getSelectionModel().selectFirst();
+
+        if (Inventory.selectedPart instanceof InHouse) {
+            InHouse_Outsourced.selectToggle(inHouseButton);
+            inHouseButtonClicked();
+            machineIDBox.setText(Integer.toString(((InHouse) Inventory.selectedPart).getMachineId()));
+        }
+        else if (Inventory.selectedPart instanceof Outsourced) {
+            InHouse_Outsourced.selectToggle(outsourcedButton);
+            outsourcedButtonClicked();
+            companyNameBox.setText(((Outsourced) Inventory.selectedPart).getCompanyName());
+        }
+
+        partNameBox.setText(Inventory.selectedPart.getName());
+        inventoryBox.setText(Integer.toString(Inventory.selectedPart.getStock()));
+        priceBox.setText(Double.toString(Inventory.selectedPart.getPrice()));
+        minimumBox.setText(Integer.toString(Inventory.selectedPart.getMin()));
+        maximumBox.setText(Integer.toString(Inventory.selectedPart.getMax()));
     }
-
-    /*private ModifyPartMenuController () {
-        if (selectedPart instanceof InHouse) {
-            selectedPart = (InHouse) selectedPart;
-            machineIDBox.setText(Integer.toString(((InHouse) selectedPart).getMachineId()));
-        }
-        else if (selectedPart instanceof Outsourced) {
-            selectedPart = (Outsourced) selectedPart;
-            companyNameBox.setText(((Outsourced) selectedPart).getCompanyName());
-        }
-
-        partNameBox.setText(selectedPart.getName());
-        inventoryBox.setText(Integer.toString(selectedPart.getStock()));
-        priceBox.setText(Double.toString(selectedPart.getPrice()));
-        minimumBox.setText(Integer.toString(selectedPart.getMin()));
-        maximumBox.setText(Integer.toString(selectedPart.getMax()));
-    }*/
 
     @FXML
     private void inHouseButtonClicked () {
@@ -152,7 +151,7 @@ public class ModifyPartMenuController {
         }
     }
 
-    /*@FXML
+    @FXML
     private void validatePriceBox (KeyEvent event) {
         Utility checkNumber = new Utility();
 
@@ -163,7 +162,7 @@ public class ModifyPartMenuController {
         else {
             checkNumber.checkDecimalKey(event);
         }
-    }*/
+    }
 
     @FXML
     private void validateIntegerBox (KeyEvent event) {
@@ -172,28 +171,30 @@ public class ModifyPartMenuController {
 
     @FXML
     private void saveButtonClicked(ActionEvent event) {
-        inventory.Inventory currentInventory = inventory.Inventory.getInstance();
+        Inventory currentInventory = inventory.Inventory.getInstance();
+        ObservableList<Part> partsList = currentInventory.getAllParts();
 
         String partName = partNameBox.getText();
-        //String companyName = companyNameBox.getText();
+
+        int id;
         double price;
         int stock;
         int minimum;
         int maximum;
-        //int machineId = Integer.parseInt(machineIDBox.getText());
 
         if (validateFields()) {
+            id = Inventory.selectedPart.getId();
             price = Double.parseDouble(priceBox.getText());
             stock = Integer.parseInt(inventoryBox.getText());
             minimum = Integer.parseInt(minimumBox.getText());
             maximum = Integer.parseInt(maximumBox.getText());
 
             if (inHouseButton.selectedProperty().getValue()) {
-                currentInventory.addPart(new inventory.InHouse(currentInventory.getNextPartId(), partName, price, stock,
+                currentInventory.updatePart(partsList.indexOf(Inventory.selectedPart), new inventory.InHouse(id, partName, price, stock,
                         minimum, maximum, Integer.parseInt(machineIDBox.getText())));
             }
             else if (outsourcedButton.selectedProperty().getValue()) {
-                currentInventory.addPart(new inventory.Outsourced(currentInventory.getNextPartId(), partName, price, stock,
+                currentInventory.updatePart(partsList.indexOf(Inventory.selectedPart), new inventory.Outsourced(id, partName, price, stock,
                         minimum, maximum, companyNameBox.getText()));
             }
             else
@@ -206,9 +207,5 @@ public class ModifyPartMenuController {
     @FXML
     private void cancelButtonClicked(ActionEvent event) {
         cancelButton.getScene().getWindow().hide();
-    }
-
-    public void setSelectedPart () {
-        //this.selectedPart = selectedPart;
     }
 }

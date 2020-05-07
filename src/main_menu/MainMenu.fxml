@@ -49,8 +49,8 @@
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <Button id="MAIN_MENU_PARTS_SEARCH_BUTTON" mnemonicParsing="false" onAction="#partSearchButton" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <TextField id="MAIN_MENU_PARTS_SEARCH_BOX" onAction="#partSearchBox" prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="3" />
+                                          <Button id="MAIN_MENU_PARTS_SEARCH_BUTTON" mnemonicParsing="false" onAction="#partSearch" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                          <TextField id="MAIN_MENU_PARTS_SEARCH_BOX" fx:id="partSearchBox" onAction="#partSearch" prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="3" />
                                        </children>
                                     </GridPane>
                                     <TableView id="MAIN_MENU_PARTS_TABLE" fx:id="partsTableView" prefHeight="100.0" prefWidth="500.0">

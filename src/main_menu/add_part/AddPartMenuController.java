@@ -130,7 +130,7 @@ public class AddPartMenuController {
         }
     }
     
-    /*@FXML
+    @FXML
     private void validatePriceBox (KeyEvent event) {
         Utility checkNumber = new Utility();
         
@@ -141,7 +141,7 @@ public class AddPartMenuController {
         else {
             checkNumber.checkDecimalKey(event);
         }
-    }*/
+    }
 
     @FXML
     private void validateIntegerBox (KeyEvent event) {        

@@ -43,7 +43,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="3" />
+                              <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="3" />
                               <TextField prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="4" />
                            </children>
                         </GridPane>
@@ -91,7 +91,7 @@
                                           <Insets />
                                        </VBox.margin>
                                     </TableView>
-                                    <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Add">
+                                    <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Add">
                                        <VBox.margin>
                                           <Insets right="10.0" />
                                        </VBox.margin>
@@ -107,7 +107,7 @@
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </TableView>
-                                    <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Delete">
+                                    <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Delete">
                                        <VBox.margin>
                                           <Insets right="10.0" />
                                        </VBox.margin>
@@ -139,8 +139,8 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                            <children>
-                              <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Cancel" GridPane.columnIndex="3" />
-                              <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Save" GridPane.columnIndex="2" />
+                              <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Cancel" GridPane.columnIndex="3" />
+                              <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Save" GridPane.columnIndex="2" />
                            </children>
                         </GridPane>
                      </children>

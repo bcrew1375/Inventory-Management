@@ -49,7 +49,7 @@
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <Button id="MAIN_MENU_PARTS_SEARCH_BUTTON" mnemonicParsing="false" onAction="#partSearch" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                          <Button id="MAIN_MENU_PARTS_SEARCH_BUTTON" mnemonicParsing="false" onAction="#partSearch" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
                                           <TextField id="MAIN_MENU_PARTS_SEARCH_BOX" fx:id="partSearchBox" onAction="#partSearch" prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="3" />
                                        </children>
                                     </GridPane>
@@ -72,9 +72,9 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Button id="MAIN_MENU_PARTS_ADD_BUTTON" mnemonicParsing="false" onAction="#partAddButton" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Add" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                          <Button id="MAIN_MENU_PARTS_MODIFY_BUTTON" mnemonicParsing="false" onAction="#partModifyButton" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Modify" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <Button id="MAIN_MENU_PARTS_DELETE_BUTTON" mnemonicParsing="false" onAction="#partDeleteButton" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Delete" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                                          <Button id="MAIN_MENU_PARTS_ADD_BUTTON" mnemonicParsing="false" onAction="#partAddButton" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Add" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                          <Button id="MAIN_MENU_PARTS_MODIFY_BUTTON" mnemonicParsing="false" onAction="#partModifyButton" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Modify" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                          <Button id="MAIN_MENU_PARTS_DELETE_BUTTON" mnemonicParsing="false" onAction="#partDeleteButton" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Delete" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
                                        </children>
                                     </GridPane>
                                  </children>
@@ -103,7 +103,7 @@
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <Button id="MAIN_MENU_PRODUCTS_SEARCH_BUTTON" mnemonicParsing="false" onAction="#productSearchButton" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                          <Button id="MAIN_MENU_PRODUCTS_SEARCH_BUTTON" mnemonicParsing="false" onAction="#productSearchButton" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
                                           <TextField id="MAIN_MENU_PRODUCTS_SEARCH_BOX" onAction="#productSearchBox" prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="3" />
                                        </children>
                                     </GridPane>
@@ -126,9 +126,9 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Button id="MAIN_MENU_PRODUCTS_ADD_BUTTON" mnemonicParsing="false" onAction="#productAddButton" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Add" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                                          <Button id="MAIN_MENU_PRODUCTS_MODIFY_BUTTON" mnemonicParsing="false" onAction="#productModifyButton" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Modify" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <Button id="MAIN_MENU_PRODUCTS_DELETE_BUTTON" mnemonicParsing="false" onAction="#productDeleteButton" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Delete" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                                          <Button id="MAIN_MENU_PRODUCTS_ADD_BUTTON" mnemonicParsing="false" onAction="#productAddButton" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Add" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                          <Button id="MAIN_MENU_PRODUCTS_MODIFY_BUTTON" mnemonicParsing="false" onAction="#productModifyButton" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Modify" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                          <Button id="MAIN_MENU_PRODUCTS_DELETE_BUTTON" mnemonicParsing="false" onAction="#productDeleteButton" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Delete" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
                                        </children>
                                     </GridPane>
                                  </children>
@@ -150,7 +150,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button id="MAIN_MENU_EXIT_BUTTON" mnemonicParsing="false" onAction="#exitButton" prefHeight="25.0" prefWidth="60.0" style="-fx-border-color: black;" text="Exit" GridPane.columnIndex="1">
+                              <Button id="MAIN_MENU_EXIT_BUTTON" mnemonicParsing="false" onAction="#exitButton" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Exit" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets right="50.0" />
                                  </GridPane.margin>

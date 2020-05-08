@@ -75,14 +75,18 @@ public class MainMenuController {
         productInventoryLevelColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
         productPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        Part testPart = new InHouse(0, "Test Part", 10.00, 5, 2, 10, 7);
-        Part testPart2 = new Outsourced(1, "Test Part 2", 50.00, 6, 3, 10, "Company A");
-        Part testPart3 = new Outsourced (2, "Test Part 3", 50.00, 7, 4, 10, "Company B");
+        Part testPart = new InHouse(0, "Hard Drive", 80.00, 5, 2, 10, 7);
+        Part testPart2 = new InHouse(0, "Motherboard", 120.00, 5, 2, 10, 7);
+        Part testPart3 = new InHouse(0, "Chassis", 100.00, 5, 2, 10, 7);
+        Part testPart4 = new Outsourced(1, "Processor", 350.00, 6, 3, 10, "Company A");
+        Part testPart5 = new Outsourced (2, "GPU", 300.00, 7, 4, 10, "Company B");
 
         currentInventory.addPart(testPart);
         currentInventory.addPart(testPart2);
         currentInventory.addPart(testPart3);
-        
+        currentInventory.addPart(testPart4);
+        currentInventory.addPart(testPart5);
+
         partsTableView.setItems(allPartsList);
         partsTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
@@ -105,6 +109,8 @@ public class MainMenuController {
     @FXML
     private void partDeleteButton(ActionEvent event) {
         currentInventory.deletePart(partsTableView.getSelectionModel().getSelectedItem());
+
+        searchedPartsList.remove(partsTableView.getSelectionModel().getSelectedItem());
     }
 
     @FXML
@@ -122,16 +128,19 @@ public class MainMenuController {
 
     @FXML
     private void partSearch(ActionEvent event) {
-        searchedPartsList.removeAll(searchedPartsList);
-        searchedPartsList.addAll(currentInventory.lookupPart(partSearchBox.getText()));
+        if (!partSearchBox.getText().equals("")) {
+            searchedPartsList.removeAll(searchedPartsList);
+            searchedPartsList.addAll(currentInventory.lookupPart(partSearchBox.getText()));
 
-        try {
-            searchedPartsList.addAll(currentInventory.lookupPart(Integer.parseInt(partSearchBox.getText())));
-        }
-        catch (Exception error){
-        }
+            try {
+                searchedPartsList.addAll(currentInventory.lookupPart(Integer.parseInt(partSearchBox.getText())));
+            } catch (Exception error) {
+            }
 
-        partsTableView.setItems(searchedPartsList);
+            partsTableView.setItems(searchedPartsList);
+        }
+        else
+            partsTableView.setItems(allPartsList);
     }
 
     @FXML

@@ -20,16 +20,16 @@
    <scene>
       <Scene>
          <root>
-            <AnchorPane>
+            <AnchorPane prefWidth="1124.0">
                <children>
-                  <VBox layoutX="10.0" layoutY="10.0">
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="375.0" prefWidth="1114.0">
                      <children>
                         <Label id="MAIN_MENU_HEADER_LABEL" text="Inventory Management System" textFill="BLUE">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <HBox spacing="10.0">
+                        <HBox prefHeight="292.0" prefWidth="1094.0" spacing="10.0">
                            <children>
                               <VBox spacing="10.0" style="-fx-border-color: black;">
                                  <children>
@@ -53,7 +53,7 @@
                                           <TextField id="MAIN_MENU_PARTS_SEARCH_BOX" fx:id="partSearchBox" onAction="#partSearch" prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="3" />
                                        </children>
                                     </GridPane>
-                                    <TableView id="MAIN_MENU_PARTS_TABLE" fx:id="partsTableView" prefHeight="100.0" prefWidth="500.0">
+                                    <TableView id="MAIN_MENU_PARTS_TABLE" fx:id="partsTableView" prefHeight="160.0" prefWidth="500.0">
                                        <columns>
                                           <TableColumn id="MAIN_MENU_PARTS_TABLE_COLUMN_PARTID" fx:id="partIdColumn" editable="false" minWidth="-1.0" prefWidth="125.0" text="Part ID" />
                                           <TableColumn id="MAIN_MENU_PARTS_TABLE_COLUMN_PARTNAME" fx:id="partNameColumn" editable="false" minWidth="-1.0" prefWidth="125.0" text="Part Name" />
@@ -107,7 +107,7 @@
                                           <TextField id="MAIN_MENU_PRODUCTS_SEARCH_BOX" onAction="#productSearchBox" prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="3" />
                                        </children>
                                     </GridPane>
-                                    <TableView id="MAIN_MENU_PRODUCTS_TABLE" fx:id="productsTableView" prefHeight="100.0" prefWidth="500.0">
+                                    <TableView id="MAIN_MENU_PRODUCTS_TABLE" fx:id="productsTableView" prefHeight="160.0" prefWidth="500.0">
                                        <columns>
                                           <TableColumn id="MAIN_MENU_PRODUCTS_TABLE_COLUMN_PARTID" fx:id="productIdColumn" editable="false" minWidth="-1.0" prefWidth="125.0" text="Product ID" />
                                           <TableColumn id="MAIN_MENU_PRODUCTS_TABLE_COLUMN_PARTNAME" fx:id="productNameColumn" editable="false" minWidth="-1.0" prefWidth="125.0" text="Product Name" />

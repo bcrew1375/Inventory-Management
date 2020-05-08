@@ -71,6 +71,7 @@ public class Inventory {
             if (allParts.get(i).getId() == partId)
                 return allParts.get(i);
         }
+
         return null;
     }
 

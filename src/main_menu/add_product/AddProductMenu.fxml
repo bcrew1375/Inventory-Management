@@ -43,8 +43,8 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="3" />
-                              <TextField prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="4" />
+                              <Button id="modifyPartSave" mnemonicParsing="false" onAction="#partSearch" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="3" />
+                              <TextField fx:id="searchBox" onAction="#partSearch" prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="4" />
                            </children>
                         </GridPane>
                         <HBox style="-fx-border-color: black;" VBox.vgrow="ALWAYS">
@@ -64,50 +64,65 @@
                                 </rowConstraints>
                                  <children>
                                     <Label text="ID" />
-                                    <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <ChoiceBox fx:id="productIdBox" prefWidth="150.0" GridPane.columnIndex="1" />
                                     <Label text="Name" GridPane.rowIndex="1" />
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="productNameBox" promptText="Product Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
                                     <Label text="Inventory" GridPane.rowIndex="2" />
                                     <Label text="Price" GridPane.rowIndex="3" />
                                     <Label text="Min" GridPane.rowIndex="4" />
                                     <Label text="Max" GridPane.rowIndex="5" />
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField fx:id="inventoryBox" promptText="Stock Amount" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
+                                    <TextField fx:id="priceBox" promptText="Price" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
+                                    <TextField fx:id="minimumBox" promptText="Minimum Stock" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
+                                    <TextField fx:id="maximumBox" promptText="Maximum Stock" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
                                  </children>
                               </GridPane>
                               <Pane prefHeight="210.0" prefWidth="88.0" />
                               <VBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <TableView prefHeight="100.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+                                    <TableView fx:id="allPartsTableView" prefHeight="160.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
                                       <columns>
-                                        <TableColumn prefWidth="125.0" text="Part ID" />
-                                        <TableColumn prefWidth="125.0" text="Part Name" />
-                                          <TableColumn prefWidth="125.0" text="Inventory Level" />
-                                          <TableColumn prefWidth="125.0" text="Price Per Unit" />
+                                        <TableColumn fx:id="allPartsIdColumn" prefWidth="125.0" text="Part ID" />
+                                        <TableColumn fx:id="allPartsNameColumn" prefWidth="125.0" text="Part Name" />
+                                          <TableColumn fx:id="allPartsInventoryLevelColumn" prefWidth="125.0" text="Inventory Level" />
+                                          <TableColumn fx:id="allPartsPriceColumn" prefWidth="125.0" text="Price Per Unit" />
                                       </columns>
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
                                     </TableView>
-                                    <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Add">
+                                    <Button id="modifyPartSave" mnemonicParsing="false" onAction="#addAssociatedPart" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Add">
                                        <VBox.margin>
                                           <Insets right="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <TableView prefHeight="100.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+                                    <TableView fx:id="productPartsTableView" prefHeight="160.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
                                       <columns>
-                                        <TableColumn prefWidth="125.0" text="Part ID" />
-                                        <TableColumn prefWidth="125.0" text="Part Name" />
-                                          <TableColumn prefWidth="125.0" text="Inventory Level" />
-                                          <TableColumn prefWidth="125.0" text="Price Per Unit" />
+                                        <TableColumn fx:id="productPartsIdColumn" prefWidth="125.0" text="Part ID" />
+                                        <TableColumn fx:id="productPartsNameColumn" prefWidth="125.0" text="Part Name" />
+                                          <TableColumn fx:id="productPartsInventoryLevelColumn" prefWidth="125.0" text="Inventory Level" />
+                                          <TableColumn fx:id="productPartsPriceColumn" prefWidth="125.0" text="Price Per Unit" />
                                       </columns>
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </TableView>
-                                    <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Delete">
+                                    <Button id="modifyPartSave" mnemonicParsing="false" onAction="#deleteAssociatedPart" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Delete">
                                        <VBox.margin>
                                           <Insets right="10.0" />
                                        </VBox.margin>
@@ -139,8 +154,8 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                            <children>
-                              <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Cancel" GridPane.columnIndex="3" />
-                              <Button id="modifyPartSave" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Save" GridPane.columnIndex="2" />
+                              <Button id="modifyPartSave" fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Cancel" GridPane.columnIndex="3" />
+                              <Button id="modifyPartSave" fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Save" GridPane.columnIndex="2" />
                            </children>
                         </GridPane>
                      </children>

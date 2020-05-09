@@ -16,9 +16,7 @@ public abstract class Part {
     private int stock;
     private int min;
     private int max;
-    
-    private int nextId = 0;
-    
+
     Part (int id, String name, double price, int stock, int min, int max) {
         this.id = id;
         this.name = name;
@@ -26,8 +24,6 @@ public abstract class Part {
         this.stock = stock;
         this.min = min;
         this.max = max;
-        
-        nextId++;
     }
     
     public int getId () {
@@ -37,11 +33,7 @@ public abstract class Part {
     public String getName () {
         return this.name;
     }
-    
-    public int getNextId() {
-        return nextId;
-    }
-    
+
     public double getPrice () {
         return this.price;
     }

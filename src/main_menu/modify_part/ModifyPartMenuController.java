@@ -143,6 +143,9 @@ public class ModifyPartMenuController {
         else if (inHouseButton.selectedProperty().getValue() && !utility.validateInteger(machineIDBox.getText()))
             errorText = "The machine ID must be a positive integer.";
 
+        else if ((Integer.parseInt(minimumBox.getText()) > Integer.parseInt(maximumBox.getText())) || (Integer.parseInt(maximumBox.getText()) < Integer.parseInt(minimumBox.getText())))
+            errorText = "The minimum value can not exceed the maximum value.";
+
         if (errorText.equals(""))
             return true;
         else {
@@ -190,11 +193,11 @@ public class ModifyPartMenuController {
             maximum = Integer.parseInt(maximumBox.getText());
 
             if (inHouseButton.selectedProperty().getValue()) {
-                currentInventory.updatePart(partsList.indexOf(Inventory.selectedPart), new inventory.InHouse(id, partName, price, stock,
+                currentInventory.updatePart(partsList.indexOf(Inventory.selectedPart), new InHouse(id, partName, price, stock,
                         minimum, maximum, Integer.parseInt(machineIDBox.getText())));
             }
             else if (outsourcedButton.selectedProperty().getValue()) {
-                currentInventory.updatePart(partsList.indexOf(Inventory.selectedPart), new inventory.Outsourced(id, partName, price, stock,
+                currentInventory.updatePart(partsList.indexOf(Inventory.selectedPart), new Outsourced(id, partName, price, stock,
                         minimum, maximum, companyNameBox.getText()));
             }
             else
@@ -206,6 +209,10 @@ public class ModifyPartMenuController {
 
     @FXML
     private void cancelButtonClicked(ActionEvent event) {
-        cancelButton.getScene().getWindow().hide();
+        Alert cancel;
+
+        cancel = utility.displayConfirm("Cancel", "Are you sure you want to cancel modifying this part?");
+        if (cancel.getResult().equals(ButtonType.YES))
+            cancelButton.getScene().getWindow().hide();
     }
 }

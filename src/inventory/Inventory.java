@@ -23,6 +23,7 @@ public class Inventory {
     
     private Inventory() {
         allParts = FXCollections.observableArrayList();
+        allProducts = FXCollections.observableArrayList();
 
         nextPartId = 0;
         nextProductId = 0;
@@ -50,14 +51,18 @@ public class Inventory {
         return allParts.remove(selectedPart);
     }
 
-    /*public boolean deleteProduct (Product selectedProduct) {
-        
-    }*/
+    public boolean deleteProduct (Product selectedProduct) {
+        return allProducts.remove(selectedProduct);
+    }
     
     public int getNextPartId () {
         return nextPartId;
     }
-    
+
+    public int getNextProductId () {
+        return nextProductId;
+    }
+
     public ObservableList<Part> getAllParts () {
         return this.allParts;
     }
@@ -75,14 +80,17 @@ public class Inventory {
         return null;
     }
 
-    /*public Product lookupProduct(int productId) {
-        
-    }*/
+    public Product lookupProduct(int productId) {
+        for (int i = 0; i < allProducts.size(); i++) {
+            if (allProducts.get(i).getId() == productId)
+                return allProducts.get(i);
+        }
+
+        return null;
+    }
 
     public ObservableList<Part> lookupPart(String partName) {
         ObservableList<Part> lookupList = FXCollections.observableArrayList();
-
-        String searchedPart = partName.toUpperCase();
 
         for (int i = 0; i < allParts.size(); i++) {
             if (allParts.get(i).getName().toUpperCase().contains(partName.toUpperCase()))
@@ -92,15 +100,22 @@ public class Inventory {
         return lookupList;
     }
 
-    /*public ObservableList<Product> lookupProduct(String productName) {
-        
-    }*/
+    public ObservableList<Product> lookupProduct(String productName) {
+        ObservableList<Product> lookupList = FXCollections.observableArrayList();
+
+        for (int i = 0; i < allProducts.size(); i++) {
+            if (allProducts.get(i).getName().toUpperCase().contains(productName.toUpperCase()))
+                lookupList.add(allProducts.get(i));
+        }
+
+        return lookupList;
+    }
 
     public void updatePart (int index, Part selectedPart) {
         allParts.set(index, selectedPart);
     }
     
-    /*public void updateProduct (int index, Product newProduct) {
-        
-    }*/
+    public void updateProduct (int index, Product newProduct) {
+        allProducts.set(index, newProduct);
+    }
 }

@@ -22,7 +22,7 @@
          <root>
             <AnchorPane>
                <children>
-                  <VBox alignment="CENTER" layoutX="220.0" layoutY="29.0" prefHeight="434.0" prefWidth="580.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="CENTER" layoutX="220.0" layoutY="29.0" prefHeight="450.0" prefWidth="580.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <GridPane VBox.vgrow="ALWAYS">
                           <columnConstraints>
@@ -76,25 +76,25 @@
                                  </font>
                               </TextField>
                               <Label text="Inventory" GridPane.rowIndex="2" />
-                              <TextField id="addPartInventoryLevel" fx:id="inventoryBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" prefWidth="180.0" promptText="Stock Amount" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <TextField id="addPartInventoryLevel" fx:id="inventoryBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" prefWidth="180.0" promptText="Stock Amount" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <font>
                                     <Font name="System Italic" size="12.0" />
                                  </font>
                               </TextField>
                               <Label text="Price/Cost" GridPane.rowIndex="3" />
-                              <TextField id="addPartPrice" fx:id="priceBox" onAction="#saveButtonClicked" onKeyTyped="#validatePriceBox" prefHeight="25.0" prefWidth="125.0" promptText="Price/Cost" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                              <TextField id="addPartPrice" fx:id="priceBox" onAction="#saveButtonClicked" onKeyTyped="#validatePriceBox" prefHeight="25.0" prefWidth="125.0" promptText="Price/Cost" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <font>
                                     <Font name="System Italic" size="12.0" />
                                  </font>
                               </TextField>
                               <Label text="Minimum" GridPane.rowIndex="4" />
-                              <TextField id="addPartMinStock" fx:id="minimumBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" prefHeight="25.0" prefWidth="125.0" promptText="Minimum Stock" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                              <TextField id="addPartMinStock" fx:id="minimumBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" prefHeight="25.0" prefWidth="125.0" promptText="Minimum Stock" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                  <font>
                                     <Font name="System Italic" size="12.0" />
                                  </font>
                               </TextField>
                               <Label text="Maximum" GridPane.rowIndex="5" />
-                              <TextField id="addPartMaxStock" fx:id="maximumBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" prefWidth="125.0" promptText="Maximum Stock" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                              <TextField id="addPartMaxStock" fx:id="maximumBox" onAction="#saveButtonClicked" onKeyTyped="#validateIntegerBox" prefWidth="125.0" promptText="Maximum Stock" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                  <font>
                                     <Font name="System Italic" size="12.0" />
                                  </font>

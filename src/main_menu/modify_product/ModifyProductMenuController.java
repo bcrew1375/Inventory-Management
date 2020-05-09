@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main_menu.add_product;
+package main_menu.modify_product;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ import utility.Utility;
  *
  * @author Benjamin Crew
  */
-public class AddProductMenuController {
+public class ModifyProductMenuController {
     @FXML
     private Button cancelButton;
     @FXML
@@ -101,6 +101,14 @@ public class AddProductMenuController {
         allPartsTableView.setItems(allPartsList);
         allPartsTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
+        productNameBox.setText(Inventory.selectedProduct.getName());
+        inventoryBox.setText(Integer.toString(Inventory.selectedProduct.getStock()));
+        priceBox.setText(Double.toString(Inventory.selectedProduct.getPrice()));
+        minimumBox.setText(Integer.toString(Inventory.selectedProduct.getMin()));
+        maximumBox.setText(Integer.toString(Inventory.selectedProduct.getMax()));
+
+        productPartsList = Inventory.selectedProduct.getAllAssociatedParts();
+
         productPartsTableView.setItems(productPartsList);
         productPartsTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
@@ -168,15 +176,20 @@ public class AddProductMenuController {
 
     @FXML
     private void saveButtonClicked(ActionEvent event) {
-        Product newProduct;
+        ObservableList<Product> productsList = currentInventory.getAllProducts();
+
+        Product modifiedProduct;
 
         String productName;
+
+        int id;
         double price;
         int stock;
         int minimum;
         int maximum;
 
         if (validateFields()) {
+            id = Inventory.selectedProduct.getId();
             productName = productNameBox.getText();
             price = Double.parseDouble(priceBox.getText());
             stock = Integer.parseInt(inventoryBox.getText());
@@ -184,11 +197,11 @@ public class AddProductMenuController {
             maximum = Integer.parseInt(maximumBox.getText());
 
             if (!productPartsList.isEmpty()) {
-                newProduct = new Product(currentInventory.getNextProductId(), productName, price, stock, minimum, maximum);
-                currentInventory.addProduct(newProduct);
+                modifiedProduct = new Product(id, productName, price, stock, minimum, maximum);
+                currentInventory.updateProduct(productsList.indexOf(Inventory.selectedProduct), modifiedProduct);
 
                 for (int i = 0; i < productPartsList.size(); i++) {
-                    newProduct.addAssociatedPart(productPartsList.get(i));
+                    modifiedProduct.addAssociatedPart(productPartsList.get(i));
                 }
 
                 saveButton.getScene().getWindow().hide();
@@ -199,6 +212,7 @@ public class AddProductMenuController {
     }
 
     private Boolean validateFields() {
+        Double partsPriceTotal = 0.0;
         String errorText = "";
 
         if ("".equals(productNameBox.getText()))
@@ -226,6 +240,14 @@ public class AddProductMenuController {
         else if ((Integer.parseInt(inventoryBox.getText()) < Integer.parseInt(minimumBox.getText())) || (Integer.parseInt(inventoryBox.getText()) > Integer.parseInt(maximumBox.getText())))
             errorText = "The inventory level must fall between the minimum and maximum values.";
 
+        // Ensure the price of the product is not less than the combined price of the associated parts.
+        for (int i = 0; i < productPartsList.size(); i++) {
+            partsPriceTotal += productPartsList.get(i).getPrice();
+        }
+
+        if (Double.parseDouble(priceBox.getText()) < partsPriceTotal)
+            errorText = "The product price shouldn't be less than the total price of the associated parts.";
+
         if (errorText.equals(""))
             return true;
         else {
@@ -238,7 +260,7 @@ public class AddProductMenuController {
     private void cancelButtonClicked(ActionEvent event) {
         Alert cancel;
 
-        cancel = utility.displayConfirm("Cancel", "Are you sure you want to cancel adding this product?");
+        cancel = utility.displayConfirm("Cancel", "Are you sure you want to cancel modifying this product?");
         if (cancel.getResult().equals(ButtonType.YES))
             cancelButton.getScene().getWindow().hide();
     }

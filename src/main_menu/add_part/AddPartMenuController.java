@@ -65,7 +65,7 @@ public class AddPartMenuController {
 
         partIdBox.setItems(partIdBoxChoices);
         partIdBox.getSelectionModel().selectFirst();
-    }
+   }
     
     @FXML
     private void inHouseButtonClicked () {
@@ -92,7 +92,7 @@ public class AddPartMenuController {
         companyNameBox.setVisible(true);
         companyNameBox.setDisable(false);
     }
-    
+
     private Boolean validateFields() {
         String errorText = "";
 
@@ -121,7 +121,12 @@ public class AddPartMenuController {
             errorText = "The maximum stock must be a positive integer.";
         else if (inHouseButton.selectedProperty().getValue() && !utility.validateInteger(machineIDBox.getText()))
             errorText = "The machine ID must be a positive integer.";
-        
+
+        else if ((Integer.parseInt(minimumBox.getText()) > Integer.parseInt(maximumBox.getText())) || (Integer.parseInt(maximumBox.getText()) < Integer.parseInt(minimumBox.getText())))
+            errorText = "The minimum value can not exceed the maximum value.";
+        else if ((Integer.parseInt(inventoryBox.getText()) < Integer.parseInt(minimumBox.getText())) || (Integer.parseInt(inventoryBox.getText()) < Integer.parseInt(maximumBox.getText())))
+            errorText = "The inventory level must fall between the minimum and maximum values.";
+
         if (errorText.equals(""))
             return true;
         else {
@@ -129,7 +134,7 @@ public class AddPartMenuController {
             return false;
         }
     }
-    
+
     @FXML
     private void validatePriceBox (KeyEvent event) {
         Utility checkNumber = new Utility();
@@ -183,6 +188,10 @@ public class AddPartMenuController {
 
     @FXML
     private void cancelButtonClicked(ActionEvent event) {
-        cancelButton.getScene().getWindow().hide();
+        Alert cancel;
+
+        cancel = utility.displayConfirm("Cancel", "Are you sure you want to cancel adding this part?");
+        if (cancel.getResult().equals(ButtonType.YES))
+            cancelButton.getScene().getWindow().hide();
     }
 }

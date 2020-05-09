@@ -5,14 +5,9 @@
  */
 //package C482InventoryManagement;
 
-import java.io.IOException;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import javafx.application.Platform;
-import javafx.scene.control.Alert;
-
-import main_menu.MainMenu;
 import utility.Utility;
 /**
  *

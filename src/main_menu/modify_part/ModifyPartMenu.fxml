@@ -22,7 +22,7 @@
          <root>
             <AnchorPane>
                <children>
-                  <VBox alignment="CENTER" layoutX="220.0" layoutY="29.0" prefHeight="434.0" prefWidth="580.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="CENTER" layoutX="220.0" layoutY="29.0" prefHeight="450.0" prefWidth="580.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <GridPane VBox.vgrow="ALWAYS">
                            <columnConstraints>

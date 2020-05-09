@@ -7,6 +7,7 @@ package utility;
 
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import javafx.scene.control.Alert;
@@ -62,7 +63,16 @@ public class Utility {
         error.setContentText(errorText);
         error.showAndWait();
     }
-    
+
+    public Alert displayConfirm(String title, String confirmText) {
+        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+        confirm.setTitle(title);
+        confirm.getButtonTypes().set(0, ButtonType.YES);
+        confirm.getButtonTypes().set(1, ButtonType.NO);
+        confirm.setContentText(confirmText);
+        confirm.showAndWait();
+        return confirm;
+    }
     public Boolean validateDouble (String number) {
         Double inputValue;
         

@@ -22,7 +22,7 @@
          <root>
             <AnchorPane prefWidth="1124.0">
                <children>
-                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="375.0" prefWidth="1114.0">
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="375.0" prefWidth="1115.0">
                      <children>
                         <Label id="MAIN_MENU_HEADER_LABEL" text="Inventory Management System" textFill="BLUE">
                            <font>
@@ -103,8 +103,8 @@
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <Button id="MAIN_MENU_PRODUCTS_SEARCH_BUTTON" mnemonicParsing="false" onAction="#productSearchButton" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <TextField id="MAIN_MENU_PRODUCTS_SEARCH_BOX" onAction="#productSearchBox" prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="3" />
+                                          <Button id="MAIN_MENU_PRODUCTS_SEARCH_BUTTON" mnemonicParsing="false" onAction="#productSearch" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                          <TextField id="MAIN_MENU_PRODUCTS_SEARCH_BOX" fx:id="productSearchBox" onAction="#productSearch" prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="3" />
                                        </children>
                                     </GridPane>
                                     <TableView id="MAIN_MENU_PRODUCTS_TABLE" fx:id="productsTableView" prefHeight="160.0" prefWidth="500.0">

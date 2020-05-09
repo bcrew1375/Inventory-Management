@@ -29,8 +29,6 @@ public class AddPartMenuController {
     @FXML
     private Button saveButton;
     @FXML
-    private ChoiceBox partIdBox;
-    @FXML
     private Label companyNameLabel;
     @FXML
     private Label machineIDLabel;
@@ -58,14 +56,7 @@ public class AddPartMenuController {
     @FXML
     private void initialize () {
         utility = new Utility();
-
-        ObservableList<String> partIdBoxChoices = FXCollections.observableArrayList();
-
-        partIdBoxChoices.add("Auto-generated");
-
-        partIdBox.setItems(partIdBoxChoices);
-        partIdBox.getSelectionModel().selectFirst();
-   }
+    }
     
     @FXML
     private void inHouseButtonClicked () {
@@ -124,7 +115,7 @@ public class AddPartMenuController {
 
         else if ((Integer.parseInt(minimumBox.getText()) > Integer.parseInt(maximumBox.getText())) || (Integer.parseInt(maximumBox.getText()) < Integer.parseInt(minimumBox.getText())))
             errorText = "The minimum value can not exceed the maximum value.";
-        else if ((Integer.parseInt(inventoryBox.getText()) < Integer.parseInt(minimumBox.getText())) || (Integer.parseInt(inventoryBox.getText()) < Integer.parseInt(maximumBox.getText())))
+        else if ((Integer.parseInt(inventoryBox.getText()) < Integer.parseInt(minimumBox.getText())) || (Integer.parseInt(inventoryBox.getText()) > Integer.parseInt(maximumBox.getText())))
             errorText = "The inventory level must fall between the minimum and maximum values.";
 
         if (errorText.equals(""))

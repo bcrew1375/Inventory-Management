@@ -18,7 +18,6 @@ import javafx.scene.input.KeyEvent;
  * @author Benjamin Crew
  */
 public class Utility {
-
     public Stage LoadFXML (String fxmlFilename) {
         FXMLLoader loadFxml;
         Stage stage;
@@ -73,6 +72,7 @@ public class Utility {
         confirm.showAndWait();
         return confirm;
     }
+
     public Boolean validateDouble (String number) {
         Double inputValue;
         

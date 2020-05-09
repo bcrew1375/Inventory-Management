@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
@@ -68,7 +67,6 @@
                            </padding>
                            <children>
                               <Label text="ID" />
-                              <ChoiceBox fx:id="partIdBox" disable="true" prefHeight="25.0" prefWidth="130.0" GridPane.columnIndex="1" />
                               <Label text="Name" GridPane.rowIndex="1" />
                               <TextField fx:id="partNameBox" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="125.0" promptText="Part Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
@@ -113,6 +111,7 @@
                               </TextField>
                               <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Save" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
                               <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="25.0" prefWidth="70.0" style="-fx-border-color: black;" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                              <TextField disable="true" editable="false" text="Auto-generated" GridPane.columnIndex="1" />
                            </children>
                            <VBox.margin>
                               <Insets />

@@ -19,17 +19,12 @@ public class C482InventoryManagement extends Application {
 
     @Override
     public void start(Stage mainStage) {
-//        Stage addPartMenuStage;
         String fxmlFilename;
         Utility loadFxml = new Utility();
 
         fxmlFilename = "/main_menu/MainMenu.fxml";
         mainStage = loadFxml.LoadFXML(fxmlFilename);
         mainMenuStage = mainStage;
-
-/*        fxmlFilename = "main_menu/add_part/AddPartMenu.fxml";
-        addPartMenuStage = loadFxml.LoadFXML(fxmlFilename);
-        addPartMenuStage.initOwner(mainMenuStage);*/
 
         mainMenuStage.show();
     }

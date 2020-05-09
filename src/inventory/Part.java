@@ -17,7 +17,7 @@ public abstract class Part {
     private int min;
     private int max;
 
-    Part (int id, String name, double price, int stock, int min, int max) {
+    public Part (int id, String name, double price, int stock, int min, int max) {
         this.id = id;
         this.name = name;
         this.price = price;

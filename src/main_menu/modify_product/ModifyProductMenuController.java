@@ -74,19 +74,12 @@ public class ModifyProductMenuController {
     private Utility utility;
 
     public void initialize() {
-        ObservableList<String> partIdBoxChoices = FXCollections.observableArrayList();
-
-        partIdBoxChoices.add("Auto-generated");
-
         utility = new Utility();
 
         currentInventory = Inventory.getInstance();
         allPartsList = currentInventory.getAllParts();
         productPartsList = FXCollections.observableArrayList();
         searchedPartsList = FXCollections.observableArrayList();
-
-        productIdBox.setItems(partIdBoxChoices);
-        productIdBox.getSelectionModel().selectFirst();
 
         allPartsIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         allPartsNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));

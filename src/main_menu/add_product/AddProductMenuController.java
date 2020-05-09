@@ -31,8 +31,6 @@ public class AddProductMenuController {
     @FXML
     private Button saveButton;
     @FXML
-    private ChoiceBox productIdBox;
-    @FXML
     private TableColumn<Part, Integer> allPartsIdColumn;
     @FXML
     private TableColumn<Part, String> allPartsNameColumn;
@@ -74,19 +72,12 @@ public class AddProductMenuController {
     private Utility utility;
 
     public void initialize() {
-        ObservableList<String> partIdBoxChoices = FXCollections.observableArrayList();
-
-        partIdBoxChoices.add("Auto-generated");
-
         utility = new Utility();
 
         currentInventory = Inventory.getInstance();
         allPartsList = currentInventory.getAllParts();
         productPartsList = FXCollections.observableArrayList();
         searchedPartsList = FXCollections.observableArrayList();
-
-        productIdBox.setItems(partIdBoxChoices);
-        productIdBox.getSelectionModel().selectFirst();
 
         allPartsIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         allPartsNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
